@@ -19,6 +19,7 @@ h2 {
     background-color: var(--byba-off-blue);
     text-align: center;
     text-transform: uppercase;
+    padding: 1rem;
 }
 
 a {
@@ -114,4 +115,33 @@ a.text-light {
     color: #FFF;
     font-weight: bold;
     margin-left: 10vw;
+}
+
+.breadcrumbs {
+    background-color: #f6f6f6;
+    background-image: url('../img/breadcrumbs.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1rem;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
+}
+
+.breadcrumbs p {
+    margin: 0;
+}
+
+ul.membership {
+    list-style: none;
+}
+
+ul.membership .fas {
+    background-color: var(--byba-red);
+    color: #FFF;
+    border-radius: 100%;
+    padding: 7px;
+    margin-right: 5px;
 }

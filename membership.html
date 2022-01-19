@@ -9,11 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link href="css/style.css" rel="stylesheet" />
 
-    <title>British Youth Band Association (BYBA)</title>
+    <title>Membership | British Youth Band Association (BYBA)</title>
 </head>
 
 <body>
@@ -46,8 +46,8 @@
         <div class="container">
             <div class="collapse navbar-collapse justify-content-center">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Us</a>
@@ -58,10 +58,10 @@
                             <li><a class="dropdown-item" href="#">Council of Trustees</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Membership</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="membership.html">Membership List</a></li>
+                            <li><a class="dropdown-item active" aria-current="page" href="membership.html">Membership List</a></li>
                             <li><a class="dropdown-item" href="#">Fellowship</a></li>
                             <li><a class="dropdown-item" href="#">President Award Winners</a></li>
                             <li><a class="dropdown-item" href="sign-up.html">Register for Membership</a></li>
@@ -94,37 +94,22 @@
         </div>
     </nav>
 
-    <!-- hero image -->
-    <div class="trumpet-bg">
-        <div class="container">
-            <h1>British Youth Band Association</h1>
+    <div class="breadcrumbs">
+        <div class="container text-end">
+            <p>You are here: <a href="index.html">Home</a> / Membership List</p>
         </div>
     </div>
 
-    <!-- main content -->
     <main id="app">
-        <div class="container mt-3">
-            <div class="row mb-3">
-                <div class="col-8">
-                    <p>The British Youth Band Association (BYBA) is a charitable organisation which seeks to promote the growth, prestige and calibre of marching bands within Britain. Founded in 1974, the Association set up rules to standardise the running of contests, judging and scoring, as well as introducing national divisions and classes.</p>
-                    <p><a href="membership.html">Membership of BYBA</a> is open to any marching band, however we do focus on youth bands (aged 25 and under). We love traditional military-inspired marching bands, US-style drum corps, European-style show bands and everything in between - we just love music on the move!</p>
-                    <p><a href="#">Find out what joining BYBA can do for you!</a></p>
-                </div>
-
-                <div class="col-4">
-                    <img class="img-fluid" src="img/leaning-drums.webp" alt="" />
-                </div>
-            </div>
-
+        <div class="container">
             <div class="row">
                 <div class="col-8">
-                    <h2>Latest News</h2>
+                    <h1>2022 Membership</h1>
+                    <p class="mt-3">Bands will be added here as they <a href="sign-up.html">register their membership</a>.</p>
 
-                    <div class="card card-body mb-3" v-for="item in news">
-                        <p class="fw-bold">{{item.title}}</p>
-                        <p>{{item.content}}</p>
-                        <a class="btn btn-default" href="#">Read More</a>
-                    </div>
+                    <ul class="mt-3 membership">
+                        <li v-for="band in membership" class="mb-3"><i class="fas fa-music"></i><a :href="band.website" target="_blank">{{band.band}}</a> - {{band.location}}</li>
+                    </ul>
                 </div>
 
                 <div class="col-4">
@@ -154,7 +139,6 @@
         let app = new Vue({
             el: '#app',
             data: {
-                news: [],
                 dates: [{
                     "date": "2022-05-22",
                     "title": "BYBA Preview",
@@ -209,27 +193,124 @@
                     "month": "Nov",
                     "day": "19",
                     "full": "19th Nov 2022"
+                }],
+                membership: [{
+                    "band": "1st Ibstock Scout Band",
+                    "location": "Ibstock, Leicestershire",
+                    "website": "https://ibstockscoutband.wordpress.com/"
+                }, {
+                    "band": "13th City of Coventry Scout Marching Band",
+                    "location": "Coventry",
+                    "website": ""
+                }, {
+                    "band": "Beeches Performance Ensemble",
+                    "location": "Great Barr, Birmingham",
+                    "website": "http://www.beechespe.org.uk/"
+                }, {
+                    "band": "Burgess Hill Marching Youth",
+                    "location": "Burgess Hill, West Sussex",
+                    "website": "http://bhmy.org/"
+                }, {
+                    "band": "Concord AllStars",
+                    "location": "Sheffield, South Yorkshire",
+                    "website": "http://www.concord.org.uk/"
+                }, {
+                    "band": "East Coast Elite",
+                    "location": "Cleethorpes, East Lincolnshire",
+                    "website": "http://www.eastcoastelite.org/"
+                }, {
+                    "band": "Hertfordshire Showband",
+                    "location": "Potters Bar, Hertfordshire",
+                    "website": "http://hertfordshire-showband.org/"
+                }, {
+                    "band": "Huntbridge Drum and Bugle Corps",
+                    "location": "Huntingdonshire, Cambridge",
+                    "website": ""
+                }, {
+                    "band": "Kings Norton Youth Marching Band",
+                    "location": "Kings Norton, Birmingham",
+                    "website": "https://www.freewebs.com/kingsnortonymb/"
+                }, {
+                    "band": "Lanesfield BB/GB",
+                    "location": "Lanesfield, Wolverhampton",
+                    "website": "https://www.facebook.com/Lanesfielddrumcorps/"
+                }, {
+                    "band": "Liberty",
+                    "location": "Northampton, Northamptonshire",
+                    "website": "http://libertydrumcorps.org.uk/"
+                }, {
+                    "band": "Nuneaton and Bedworth Sea Cadets TS Vanquisher",
+                    "location": "Nuneaton, Warwickshire",
+                    "website": ""
+                }, {
+                    "band": "Phantom Knights",
+                    "location": "Nuneaton, Warwickshire",
+                    "website": "http://phantom-knights.org.uk/"
+                }, {
+                    "band": "Revolution",
+                    "location": "Queensbury, West Yorkshire",
+                    "website": "http://www.revolutionshowcorps.org.uk/"
+                }, {
+                    "band": "Spalding Marching Ambassadors",
+                    "location": "Spalding, Lincolnshire",
+                    "website": "https://goo.gl/Wm2iWS"
+                }, {
+                    "band": "Stafford Brigades YMB",
+                    "location": "Stafford, Staffordshire",
+                    "website": "https://staffordbrigades.webs.com/"
+                }, {
+                    "band": "Syston Scout & Guide Band",
+                    "location": "Syston, Leicesershire",
+                    "website": "https://www.systonscouts.org.uk/"
+                }, {
+                    "band": "T.S. Implacable NTC",
+                    "location": "Littlehampton, West Sussex",
+                    "website": ""
+                }, {
+                    "band": "T.S. Intrepid NTC",
+                    "location": "Lancing, West Sussex",
+                    "website": ""
+                }, {
+                    "band": "T.S. Resolution NTC",
+                    "location": "East Grinstead, West Sussex",
+                    "website": ""
+                }, {
+                    "band": "T.S. Sturdy NTC",
+                    "location": "Chichester, West Sussex",
+                    "website": "http://www.ntc.org.uk/sturdy/index.html"
+                }, {
+                    "band": "T.S. Swiftsure NTC",
+                    "location": "Copthorne, West Sussex",
+                    "website": ""
+                }, {
+                    "band": "T.S. Tenacity NTC",
+                    "location": "Portchester, Hampshire",
+                    "website": ""
+                }, {
+                    "band": "T.S. Zealous NTC",
+                    "location": "Hollingbury, Brighton",
+                    "website": ""
                 }]
             },
             mounted: function() {
-                for (let i = 1; i < 4; i++) {
-                    this.news.push({
-                        title: "News Item " + i,
-                        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type..."
-                    });
+                let bands = localStorage.getItem("bands");
+
+                if (bands == null) {
+                    return;
                 }
 
-                this.dates.forEach(date => {
-                    let d = new Date(Date.parse(date.date));
-                    date.month = d.toLocaleString('en-gb', {
-                        month: 'short'
-                    });
-                    date.day = d.toLocaleString('en-gb', {
-                        day: 'numeric'
-                    });
-                    date.full = getNumberWithOrdinal(date.day) + " " + date.month + " 2022";
-                    date.day = (date.day < 10 ? "0" : "") + date.day;
-                })
+                bands = JSON.parse(bands);
+                this.bands = this.bands.concat(bands);
+
+                this.bands.sort((e1, e2) => {
+                    if (e1 < e2) {
+                        return -1
+                    } else if (e1 == e2) {
+                        return 0
+                    } else {
+                        return 1
+                    }
+                });
             }
         });
 
