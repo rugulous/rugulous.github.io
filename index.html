@@ -1,98 +1,214 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<!-- Required meta tags -->
-    	<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet"> 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
 
-    	<!-- Bootstrap CSS -->
-    	<link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-		<link href="css/style.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="css/style.css" rel="stylesheet" />
 
-    	<title>British Youth Band Association (BYBA)</title>
-  	</head>
-	<body>
-		<!-- topbar membership CTA -->
-	  	<div class="bg-blue text-light p-3 mb-3">
-			<div class="container text-center">
-				BYBA Membership for 2022 is now open! <a href="membership.html" class="text-light">Sign up today</a>
-		  	</div>
-	  	</div>
-	  
-	  	<!-- page main header section -->
-	  	<header class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<img class="img-fluid" src="img/byba-logo-150.webp" height="140px" alt="British Youth Band Association"/>
-			  	</div>
-			  	<div class="col-lg-6 d-none d-md-flex">
-				  	<div class="stave-bg w-100">
-					  	<div>
-					  		<p style="font-size: 18px;">British Youth Band Association</p>
-					  		<p style="font-size: 40px; font-family:Georgia;color:#0e0199">Youth Music In Action</p>
-					  	</div>
-				  	</div>
-			  	</div>
-		  	</div>
-	  	</header>
-		
-		<nav class="mt-3 pt-0 border-top navbar navbar-expand-sm">
-			<div class="container">
-				<div class="collapse navbar-collapse justify-content-center">
-					<ul class="navbar-nav">
-						<li class="nav-item active">
-							<a class="nav-link" aria-current="page" href="#">Home</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Us</a>
-							<ul class="dropdown-menu">
-            					<li><a class="dropdown-item" href="#">Our History</a></li>
-            					<li><a class="dropdown-item" href="#">Our Mission</a></li>
-								<li><a class="dropdown-item" href="#">Our Values</a></li>
-								<li><a class="dropdown-item" href="#">BYBA Council</a></li>
-          					</ul>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Directory</a>
-							<ul class="dropdown-menu">
-            					<li><a class="dropdown-item" href="#">BYBA Membership List</a></li>
-            					<li><a class="dropdown-item" href="#">BYBA Fellowship</a></li>
-								<li><a class="dropdown-item" href="#">BYBA President Award Winners</a></li>
-          					</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">News</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Notebook</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Resources</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Events</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Results</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Shop</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		
-		<div class="trumpet-bg">
-			<div class="container">
-				<h1>British Youth Band Association</h1>
-			</div>
-		</div>
-		
-		<script src="js/bootstrap.min.js"></script>
-	  	<script src="js/vue.js"></script>
-  </body>
-</html>
+    <title>British Youth Band Association (BYBA)</title>
+</head>
+
+<body>
+    <!-- topbar membership CTA -->
+    <div class="bg-blue text-light p-3 mb-3">
+        <div class="container text-center">
+            BYBA Membership for 2022 is now open! <a href="sign-up.html" class="text-light">Sign up today</a>
+        </div>
+    </div>
+
+    <!-- page main header section -->
+    <header class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="img-fluid logo" src="img/byba-logo-150.webp" alt="British Youth Band Association" />
+            </div>
+            <div class="col-lg-6 d-none d-md-flex">
+                <div class="stave-bg w-100">
+                    <div>
+                        <p>British Youth Band Association</p>
+                        <p class="slogan">Youth Music In Action</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- nav bar -->
+    <nav class="mt-3 pt-0 border-top navbar navbar-expand-sm">
+        <div class="container">
+            <div class="collapse navbar-collapse justify-content-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Us</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Our History</a></li>
+                            <li><a class="dropdown-item" href="#">Our Mission</a></li>
+                            <li><a class="dropdown-item" href="#">Our Values</a></li>
+                            <li><a class="dropdown-item" href="#">Council of Trustees</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Membership</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="membership.html">Membership List</a></li>
+                            <li><a class="dropdown-item" href="#">Fellowship</a></li>
+                            <li><a class="dropdown-item" href="#">President Award Winners</a></li>
+                            <li><a class="dropdown-item" href="sign-up.html">Register for Membership</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Notebook</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Resources</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Dalton-Wright Bursary Fund</a></li>
+                            <li><a class="dropdown-item" href="#">Downloads</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Results</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero image -->
+    <div class="trumpet-bg">
+        <div class="container">
+            <h1>British Youth Band Association</h1>
+        </div>
+    </div>
+
+    <!-- main content -->
+    <main id="app">
+        <div class="container mt-3">
+            <div class="row mb-3">
+                <div class="col-8">
+                    <p>The British Youth Band Association (BYBA) is a charitable organisation which seeks to promote the growth, prestige and calibre of marching bands within Britain. Founded in 1974, the Association set up rules to standardise the running of contests, judging and scoring, as well as introducing national divisions and classes.</p>
+                    <p><a href="membership.html">Membership of BYBA</a> is open to any marching band, however we do focus on youth bands (aged 25 and under). We love traditional military-inspired marching bands, US-style drum corps, European-style show bands and everything in between - we just love music on the move!</p>
+                    <p><a href="#">Find out what joining BYBA can do for you!</a></p>
+                </div>
+
+                <div class="col-4">
+                    <img class="img-fluid" src="img/leaning-drums.webp" alt="" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-8">
+                    <h2>Latest News</h2>
+
+                    <div class="card card-body mb-3" v-for="item in news">
+                        <p class="fw-bold">{{item.title}}</p>
+                        <p>{{item.content}}</p>
+                        <a class="btn btn-default" href="#">Read More</a>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <h2>2022 Schedule</h2>
+                    <div class="row" v-for="date in dates">
+                        <div class="col-4 text-center">
+                            <div class="bg-blue text-light rounded">
+                                <strong>{{date.month}}</strong>
+                                <p>{{date.day}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-8">
+                            <p class="mb-0">{{date.full}}</p>
+                            <strong>{{date.title}}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                news: [],
+                dates: [{
+                    date: '2022-05-22',
+                    title: 'BYBA Preview'
+                }, {
+                    date: '2022-06-19',
+                    title: 'BYBA Northern'
+                }, {
+                    date: '2022-07-02',
+                    title: 'BYBA Coventry'
+                }, {
+                    date: '2022-07-03',
+                    title: 'Summer Rhythm'
+                }, {
+                    date: '2022-07-17',
+                    title: 'BYBA Southern'
+                }, {
+                    date: '2022-09-04',
+                    title: 'BYBA Midlands'
+                }, {
+                    date: '2022-09-18',
+                    title: 'BYBA Stafford'
+                }, {
+                    date: '2022-10-02',
+                    title: 'BYBA Finals'
+                }, {
+                    date: '2022-11-19',
+                    title: 'I&E'
+                }]
+            },
+            mounted: function() {
+                for (let i = 1; i < 4; i++) {
+                    this.news.push({
+                        title: "News Item " + i,
+                        content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type..."
+                    });
+                }
+
+                this.dates.forEach(date => {
+                    let d = new Date(Date.parse(date.date));
+                    date.month = d.toLocaleString('en-gb', {
+                        month: 'short'
+                    });
+                    date.day = d.toLocaleString('en-gb', {
+                        day: 'numeric'
+                    });
+                    date.full = getNumberWithOrdinal(date.day) + " " + date.month + " 2022";
+                    date.day = (date.day < 10 ? "0" : "") + date.day;
+                })
+            }
+        });
+
+        function getNumberWithOrdinal(n) {
+            var s = ["th", "st", "nd", "rd"],
+                v = n % 100;
+            return n + (s[(v - 20) % 10] || s[v] || s[0]);
+        }
+    </script>
+</body></html>

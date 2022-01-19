@@ -1,71 +1,117 @@
 /* branding */
 
-:root{
-	--byba-blue: #0e0199;
-	--byba-red: #F00;
-	--byba-off-blue: #282360;
+:root {
+    --byba-blue: #0e0199;
+    --byba-red: #F00;
+    --byba-off-blue: #282360;
 }
 
-.bg-blue{
-	background-color: var(--byba-blue);
+.bg-blue {
+    background-color: var(--byba-blue);
 }
 
-.bg-off-blue{
-	background-color: var(--byba-off-blue);
+.bg-off-blue {
+    background-color: var(--byba-off-blue);
 }
 
+h2 {
+    color: #FFF;
+    background-color: var(--byba-off-blue);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+a {
+    color: var(--byba-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--byba-red);
+}
+
+.btn-default {
+    color: #FFF;
+    background-color: var(--byba-off-blue);
+    border-color: var(--byba-off-blue);
+}
+
+.btn-default:hover {
+    color: #FFF;
+}
 
 /* page styles */
-body{
-	font-family: "Open Sans", Verdana, sans-serif;
-	color: var(--byba-off-blue);
+body {
+    font-family: "Open Sans", Verdana, sans-serif;
+    color: var(--byba-off-blue);
+    font-size: 18px;
 }
 
-
-.stave-bg{
-	background-position: left top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-image: url("https://byba.online/wp-content/uploads/2021/06/youth-music-in-action-background.gif");
-	
-	padding-left: 7rem;
-	padding-top: 1.5rem;
+a.text-light {
+    text-decoration: underline;
 }
 
-.stave-bg p{
-	margin-bottom: 0px;
-	padding-bottom: 0px;
+.logo {
+    max-height: 140px;
 }
 
-.nav-link{
-	text-transform: uppercase;
-	color: #222;
+.stave-bg {
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://byba.online/wp-content/uploads/2021/06/youth-music-in-action-background.gif");
+
+    padding-left: 7rem;
+    padding-top: 1.5rem;
 }
 
-.nav-item{
-	margin: 0px 1rem;
+.stave-bg p {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
-.nav-item:hover, .nav-item:focus, .nav-item.active{
-	border-top: solid 3px var(--byba-red);
+.slogan {
+    font-family: Georgia;
+    color: var(--byba-blue);
+    font-size: 40px;
 }
 
-.nav-item:hover .nav-link, .nav-item:focus .nav-link, .nav-item.active .nav-link{
-	color: var(--byba-red)!important;
+.nav-link {
+    text-transform: uppercase;
+    color: #222;
 }
 
-.trumpet-bg{
-	background-color: #000;
-	background-image: linear-gradient(rgba(40, 35, 96, 0.18) 0%, rgba(40, 35, 96, 0.81) 100%), url("../img/trumpet-bg.webp");
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	padding-top: 400px;
-	padding-bottom: 20px;
+.nav-item {
+    margin: 0px 1rem;
+    border-top: solid 3px transparent;
 }
 
-.trumpet-bg h1{
-	color: #FFF;
-	font-weight: bold;
-	margin-left: 10vw;
+.nav-item:hover,
+.nav-item:focus,
+.nav-item.active {
+    border-top-color: var(--byba-red);
+}
+
+.nav-item:hover .nav-link,
+.nav-item:focus .nav-link,
+.nav-link:focus,
+.nav-link:active,
+.nav-item.active .nav-link {
+    color: var(--byba-red) !important;
+}
+
+.trumpet-bg {
+    background-color: #000;
+    background-image: linear-gradient(rgba(40, 35, 96, 0.18) 0%, rgba(40, 35, 96, 0.81) 100%), url("../img/trumpet-bg.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 350px;
+    padding-bottom: 20px;
+}
+
+.trumpet-bg h1 {
+    color: #FFF;
+    font-weight: bold;
+    margin-left: 10vw;
 }
