@@ -300,12 +300,12 @@
                 }
 
                 bands = JSON.parse(bands);
-                this.bands = this.bands.concat(bands);
+                this.membership = this.membership.concat(bands);
 
-                this.bands.sort((e1, e2) => {
-                    if (e1 < e2) {
+                this.membership = this.membership.sort((e1, e2) => {
+                    if (e1.band < e2.band) {
                         return -1
-                    } else if (e1 == e2) {
+                    } else if (e1.band == e2.band) {
                         return 0
                     } else {
                         return 1
