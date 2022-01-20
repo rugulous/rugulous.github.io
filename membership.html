@@ -303,9 +303,12 @@
                 this.membership = this.membership.concat(bands);
 
                 this.membership = this.membership.sort((e1, e2) => {
-                    if (e1.band < e2.band) {
+                    lc1 = e1.band.toLowerCase();
+                    lc2 = e2.band.toLowerCase();
+
+                    if (lc1 < lc2) {
                         return -1
-                    } else if (e1.band == e2.band) {
+                    } else if (lc1 == lc2) {
                         return 0
                     } else {
                         return 1

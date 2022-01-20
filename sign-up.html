@@ -106,219 +106,233 @@
                 <div class="col-8">
                     <h1>Register for BYBA 2022 Membership</h1>
 
-                    <div class="card card-body text-center mb-3" v-if="state.step == 0">
-                        <p>Are you registering for membership as an individual, or on behalf of a band?</p>
+                    <div v-if="!state.isComplete">
 
-                        <div>
-                            <button class="btn btn-default" v-on:click="setType(2)">Individual</button>
-                            <button class="btn btn-default" v-on:click="setType(1)">Band</button>
-                        </div>
-                    </div>
+                        <div class="card card-body text-center mb-3" v-if="state.step == 0">
+                            <p>Are you registering for membership as an individual, or on behalf of a band?</p>
 
-                    <div class="card card-body perks text-center mb-3" v-if="state.type == 1 && state.step == 1">
-
-                        <p>Please choose which level of membership you would like</p>
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header fw-bold py-3">Bronze</div>
-                                    <div class="card-body">
-                                        <p class="h1">£0</p>
-                                        <p>Access to BYBA policies</p>
-                                        <p>Support on GDPR, safeguarding and education</p>
-                                        <p>Watermarked show photos</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button class="btn btn-default" v-on:click="setTier('Bronze')">Choose Bronze</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header bg-blue text-light fw-bold py-3">Silver <small>(Most Popular)</small></div>
-                                    <div class="card-body">
-                                        <p class="h1">£15</p>
-                                        <p>Access to BYBA policies</p>
-                                        <p>Support on GDPR, safeguarding and education</p>
-                                        <p>Original show photos</p>
-                                        <p>1 vote at AGM</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button class="btn btn-default" v-on:click="setTier('Silver')">Choose Silver</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col">
-                                <div class="card h-100">
-                                    <div class="card-header fw-bold py-3">Gold</div>
-                                    <div class="card-body">
-                                        <p class="h1">£30</p>
-                                        <p>Access to BYBA policies</p>
-                                        <p>Support on GDPR, safeguarding and education</p>
-                                        <p>Original show photos</p>
-                                        <p>1 vote at AGM</p>
-                                        <p>Access to benefits such as discounted training</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button class="btn btn-default" v-on:click="setTier('Gold')">Choose Gold</button>
-                                    </div>
-                                </div>
+                            <div>
+                                <button class="btn btn-default" v-on:click="setType(2)">Individual</button>
+                                <button class="btn btn-default" v-on:click="setType(1)">Band</button>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card mb-3" id="band-details" v-if="state.type == 1 && state.step == 2">
-                        <div class="card-header text-center">Band Details</div>
-                        <div class="card-body">
+                        <div class="card card-body perks text-center mb-3" v-if="state.type == 1 && state.step == 1">
 
-                            <div class="form-group mb-3">
-                                <label for="band-name">Band/Corps Name</label>
-                                <input type="text" name="band-name" id="band-name" class="form-control" v-model="band.name" required />
-                            </div>
+                            <p>Please choose which level of membership you would like</p>
 
-                            <div class="form-group mb-3">
-                                <label for="bandmaster-name">Bandmaster Name</label>
-                                <input type="text" name="bandmaster-name" id="bandmaster-name" class="form-control" v-model="band.bandmaster" required />
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="band-location">Location</label>
-                                <input type="text" name="band-location" id="band-location" class="form-control" v-model="band.location" required />
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="band-site">Website <small>(optional)</small></label>
-                                <div class="input-group">
-                                    <span class="input-group-text">https://</span>
-                                    <input type="text" name="band-site" id="band-site" class="form-control" v-model="band.website" />
-                                </div>
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="band-social">Social Media <small>(optional)</small></label>
-                                <textarea class="form-control" id="band-social" name="band-social" v-model="band.socialMedia">
-                                </textarea>
-                            </div>
-
-                            <div class="text-center">
-                                <button class="btn btn-default" v-on:click="incrementStep('band-details')">Next</button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="card mb-3" v-if="state.type == 1 && state.step == 3" id="contact-details">
-                        <div class="card-header text-center">Contact Details</div>
-                        <div class="card-body">
-                            <div class="form-group mb-3">
-                                <label for="contact-name">Contact Name</label>
-                                <input type="text" name="contact-name" id="contact-name" class="form-control" v-model="contact.name" required />
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="email">Contact Email</label>
-                                <input type="email" name="email" id="email" class="form-control" v-model="contact.email" required />
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="phone">Contact Phone Number</label>
-                                <input type="tel" name="phone" id="phone" class="form-control" v-model="contact.phone" required />
-                            </div>
-
-                            <div class="text-center">
-                                <button class="btn btn-default" v-on:click="incrementStep('contact-details')">Next</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card mb-3" id="additional-details" v-if="(state.type == 2 && state.step == 1) || (state.type == 1 && state.step == 4)">
-                        <div class="card-header text-center">Additional Information</div>
-                        <div class="card-body">
-
-                            <div class="form-check" v-if="state.type == 1">
-                                <input class="form-check-input" type="checkbox" id="chkPhoto" v-model="additional.photoConsent">
-                                <label class="form-check-label" for="chkPhoto">
-                                    I give consent for BYBA to take photos and videos of our members and for BYBA to share them on the BYBA website, social media channels and future grant/funding applications
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="chkRenewal" v-model="additional.renewal">
-                                <label class="form-check-label" for="chkRenewal">
-                                    I wish to be kept up to date with membership renewal information
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="chkTraining" v-model="additional.training">
-                                <label class="form-check-label" for="chkTraining">
-                                    I wish to be kept up to date with training opportunities
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="chkFinals" v-model="additional.finals">
-                                <label class="form-check-label" for="chkFinals">
-                                    I wish to be kept up to date when finals tickets are available
-                                </label>
-                            </div>
-
-                            <div class="text-center">
-                                <button class="btn btn-default" v-on:click="incrementStep(null)">Next</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card mb-3" id="billing-details" v-if="(state.type == 2 && state.step == 2) || (state.type == 1 && state.step == 5)">
-                        <div class="card-header text-center">Billing Details</div>
-                        <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <div class="form-group mb-3">
-                                        <label for="billing-fname">First Name</label>
-                                        <input type="text" name="billing-fname" id="billing-fname" class="form-control" v-model="billing.fname" required />
+                                    <div class="card h-100">
+                                        <div class="card-header fw-bold py-3">Bronze</div>
+                                        <div class="card-body">
+                                            <p class="h1">£0</p>
+                                            <p>Access to BYBA policies</p>
+                                            <p>Support on GDPR, safeguarding and education</p>
+                                            <p>Watermarked show photos</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-default" v-on:click="setTier('Bronze')">Choose Bronze</button>
+                                        </div>
                                     </div>
                                 </div>
+
                                 <div class="col">
-                                    <div class="form-group mb-3">
-                                        <label for="billing-sname">Surname</label>
-                                        <input type="text" name="billing-sname" id="billing-sname" class="form-control" v-model="billing.sname" required />
+                                    <div class="card h-100">
+                                        <div class="card-header bg-blue text-light fw-bold py-3">Silver <small>(Most Popular)</small></div>
+                                        <div class="card-body">
+                                            <p class="h1">£15</p>
+                                            <p>Access to BYBA policies</p>
+                                            <p>Support on GDPR, safeguarding and education</p>
+                                            <p>Original show photos</p>
+                                            <p>1 vote at AGM</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-default" v-on:click="setTier('Silver')">Choose Silver</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group mb-3">
-                                <label for="billing-email">Email Address</label>
-                                <input type="email" name="billing-email" id="billing-email" class="form-control" v-model="billing.email" required />
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="billing-street">Street Address</label>
-                                <input type="text" name="billing-street" id="billing-street" class="form-control" v-model="billing.streetAddress" required />
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="billing-city">Town / City</label>
-                                <input type="text" name="billing-city" id="billing-city" class="form-control" v-model="billing.city" required />
-                            </div>
-
-                            <div class="form-group mb-3">
-                                <label for="billing-postcode">Postcode</label>
-                                <input type="text" name="billing-postcode" id="billing-postcode" class="form-control" v-model="billing.postcode" required />
-                            </div>
-
-                            <div class="text-center">
-                                <button class="btn btn-default" v-on:click="setComplete('billing-details')">Submit</button>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header fw-bold py-3">Gold</div>
+                                        <div class="card-body">
+                                            <p class="h1">£30</p>
+                                            <p>Access to BYBA policies</p>
+                                            <p>Support on GDPR, safeguarding and education</p>
+                                            <p>Original show photos</p>
+                                            <p>1 vote at AGM</p>
+                                            <p>Access to benefits such as discounted training</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-default" v-on:click="setTier('Gold')">Choose Gold</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <div class="card mb-3" id="band-details" v-if="state.type == 1 && state.step == 2">
+                            <div class="card-header text-center">Band Details</div>
+                            <div class="card-body">
+
+                                <div class="form-group mb-3">
+                                    <label for="band-name">Band/Corps Name</label>
+                                    <input type="text" name="band-name" id="band-name" class="form-control" v-model="band.name" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="bandmaster-name">Bandmaster Name</label>
+                                    <input type="text" name="bandmaster-name" id="bandmaster-name" class="form-control" v-model="band.bandmaster" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="band-location">Location</label>
+                                    <input type="text" name="band-location" id="band-location" class="form-control" v-model="band.location" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="band-site">Website <small>(optional)</small></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">https://</span>
+                                        <input type="text" name="band-site" id="band-site" class="form-control" v-model="band.website" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="band-social">Social Media <small>(optional)</small></label>
+                                    <textarea class="form-control" id="band-social" name="band-social" v-model="band.socialMedia">
+                                </textarea>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-default" v-on:click="incrementStep('band-details')">Next</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card mb-3" v-if="state.type == 1 && state.step == 3" id="contact-details">
+                            <div class="card-header text-center">Contact Details</div>
+                            <div class="card-body">
+                                <div class="form-group mb-3">
+                                    <label for="contact-name">Contact Name</label>
+                                    <input type="text" name="contact-name" id="contact-name" class="form-control" v-model="contact.name" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="email">Contact Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" v-model="contact.email" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="phone">Contact Phone Number</label>
+                                    <input type="tel" name="phone" id="phone" class="form-control" v-model="contact.phone" required />
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-default" v-on:click="incrementStep('contact-details')">Next</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3" id="additional-details" v-if="(state.type == 2 && state.step == 1) || (state.type == 1 && state.step == 4)">
+                            <div class="card-header text-center">Additional Information</div>
+                            <div class="card-body">
+
+                                <div class="form-check" v-if="state.type == 1">
+                                    <input class="form-check-input" type="checkbox" id="chkPhoto" v-model="additional.photoConsent">
+                                    <label class="form-check-label" for="chkPhoto">
+                                        I give consent for BYBA to take photos and videos of our members and for BYBA to share them on the BYBA website, social media channels and future grant/funding applications
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="chkRenewal" v-model="additional.renewal">
+                                    <label class="form-check-label" for="chkRenewal">
+                                        I wish to be kept up to date with membership renewal information
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="chkTraining" v-model="additional.training">
+                                    <label class="form-check-label" for="chkTraining">
+                                        I wish to be kept up to date with training opportunities
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="chkFinals" v-model="additional.finals">
+                                    <label class="form-check-label" for="chkFinals">
+                                        I wish to be kept up to date when finals tickets are available
+                                    </label>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-default" v-on:click="incrementStep(null)">Next</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3" id="billing-details" v-if="(state.type == 2 && state.step == 2) || (state.type == 1 && state.step == 5)">
+                            <div class="card-header text-center">Billing Details</div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group mb-3">
+                                            <label for="billing-fname">First Name</label>
+                                            <input type="text" name="billing-fname" id="billing-fname" class="form-control" v-model="billing.fname" required />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group mb-3">
+                                            <label for="billing-sname">Surname</label>
+                                            <input type="text" name="billing-sname" id="billing-sname" class="form-control" v-model="billing.sname" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="billing-email">Email Address</label>
+                                    <input type="email" name="billing-email" id="billing-email" class="form-control" v-model="billing.email" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="billing-street">Street Address</label>
+                                    <input type="text" name="billing-street" id="billing-street" class="form-control" v-model="billing.streetAddress" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="billing-city">Town / City</label>
+                                    <input type="text" name="billing-city" id="billing-city" class="form-control" v-model="billing.city" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="billing-postcode">Postcode</label>
+                                    <input type="text" name="billing-postcode" id="billing-postcode" class="form-control" v-model="billing.postcode" required />
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-default" v-on:click="doPayment('billing-details')">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card-body text-center mb-3" id="payment-details" v-if="(state.type == 2 && state.step == 3) || (state.type == 1 && state.step == 6)">
+                            <p>How would you like to pay for your membership?</p>
+
+                            <div>
+                                <button class="btn btn-default" v-on:click="setPaymentType('Card')">Online (card payment)</button>
+                                <button class="btn btn-default" v-on:click="setPaymentType('Bank')">Bank Transfer</button>
+                                <button class="btn btn-default" v-on:click="setPaymentType('Cheque')">Cheque</button>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="alert alert-success text-center" v-if="state.isComplete">
-                        <p class="mb-0">Your membership has been registered successfully!</p>
-                        <a href="membership.html" v-if="state.type == 1">View membership list</a>
+                        <p class="mb-0">{{endText}}</p>
+                        <a href="membership.html" v-if="state.addedToMembership">View membership list</a>
                     </div>
 
                 </div>
@@ -381,9 +395,11 @@
                 state: {
                     type: 0, //0 = unknown, 1 = band, 2 = individual
                     step: 0,
-                    isComplete: false
+                    isComplete: false,
+                    addedToMembership: false
                 },
                 tier: null,
+                endText: '',
                 dates: [{
                     "date": "2022-05-22",
                     "title": "BYBA Preview",
@@ -458,6 +474,29 @@
 
                     this.state.step++;
                 },
+                doPayment: function(container) {
+                    if (!validateContainer(document.getElementById(container))) {
+                        return false;
+                    }
+
+                    this.incrementStep(null);
+
+                    if (this.tier == 'Bronze') { //bronze don't pay, so complete
+                        this.endText = "Your membership has been confirmed!";
+                        this.state.addedToMembership = true;
+                        this.setComplete(null);
+                    }
+                },
+                setPaymentType: function(type) {
+                    if (type == "Card") {
+                        this.endText = "Your membership has been confirmed!";
+                        this.state.addedToMembership = true;
+                    } else {
+                        this.endText = "Your details have been saved. Please check your email for the final steps to signing up for membership.";
+                    }
+
+                    this.setComplete(null);
+                },
                 setComplete: function(container) {
                     if (!validateContainer(document.getElementById(container))) {
                         return false;
@@ -487,6 +526,10 @@
         });
 
         function validateContainer(container) {
+            if (container == null) {
+                return true;
+            }
+
             let valid = true;
 
             if (container.children.length == 0) {
