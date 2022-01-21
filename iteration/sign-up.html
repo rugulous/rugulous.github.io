@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <title>Membership Registration | British Youth Band Association (BYBA)</title>
+</head>
+
+<body>
+    <!-- topbar membership CTA -->
+    <div class="bg-blue text-light p-3 mb-3">
+        <div class="container text-center">
+            BYBA Membership for 2022 is now open! <a href="sign-up.html" class="text-light">Sign up today</a>
+        </div>
+    </div>
+
+    <!-- page main header section -->
+    <header class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="img-fluid logo" src="img/byba-logo-150.webp" alt="British Youth Band Association" />
+            </div>
+            <div class="col-lg-6 d-none d-md-flex">
+                <div class="stave-bg w-100">
+                    <div>
+                        <p>British Youth Band Association</p>
+                        <p class="slogan">Youth Music In Action</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- nav bar -->
+    <nav class="mt-3 pt-0 border-top navbar navbar-expand-sm">
+        <div class="container">
+            <div class="collapse navbar-collapse justify-content-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">About Us</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Our History</a></li>
+                            <li><a class="dropdown-item" href="#">Our Mission</a></li>
+                            <li><a class="dropdown-item" href="#">Our Values</a></li>
+                            <li><a class="dropdown-item" href="#">Council of Trustees</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Membership</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="membership.html">Membership List</a></li>
+                            <li><a class="dropdown-item" href="#">Fellowship</a></li>
+                            <li><a class="dropdown-item" href="#">President Award Winners</a></li>
+                            <li><a class="dropdown-item active" aria-current="page" href="sign-up.html">Register for Membership</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Notebook</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Resources</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Dalton-Wright Bursary Fund</a></li>
+                            <li><a class="dropdown-item" href="#">Downloads</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Results</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="breadcrumbs">
+        <div class="container text-end">
+            <p>You are here: <a href="index.html">Home</a> / Register for Membership</p>
+        </div>
+    </div>
+
+    <main id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <h1>Register for BYBA 2022 Membership</h1>
+
+                    <div v-if="!state.isComplete">
+
+                        <div class="card card-body text-center mb-3" v-if="state.step == 0">
+                            <p>Are you registering for membership as an individual, or on behalf of a band?</p>
+
+                            <div>
+                                <button class="btn btn-default" v-on:click="setType(2)">Individual</button>
+                                <button class="btn btn-default" v-on:click="setType(1)">Band</button>
+                            </div>
+                        </div>
+
+                        <div class="card card-body perks text-center mb-3" v-if="state.type == 1 && state.step == 1">
+
+                            <p>Please choose which level of membership you would like</p>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header fw-bold py-3">Bronze</div>
+                                        <div class="card-body">
+                                            <p class="h1">£0</p>
+                                            <p>Access to BYBA policies</p>
+                                            <p>Support on GDPR, safeguarding and education</p>
+                                            <p>Watermarked show photos</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-default" v-on:click="setTier('Bronze')">Choose Bronze</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-blue text-light fw-bold py-3">Silver <small>(Most Popular)</small></div>
+                                        <div class="card-body">
+                                            <p class="h1">£15</p>
+                                            <p>Access to BYBA policies</p>
+                                            <p>Support on GDPR, safeguarding and education</p>
+                                            <p>Original show photos</p>
+                                            <p>1 vote at AGM</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-default" v-on:click="setTier('Silver')">Choose Silver</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <div class="card-header fw-bold py-3">Gold</div>
+                                        <div class="card-body">
+                                            <p class="h1">£30</p>
+                                            <p>Access to BYBA policies</p>
+                                            <p>Support on GDPR, safeguarding and education</p>
+                                            <p>Original show photos</p>
+                                            <p>1 vote at AGM</p>
+                                            <p>Access to benefits such as discounted training</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-default" v-on:click="setTier('Gold')">Choose Gold</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-3 text-center">
+                                <button class="btn btn-default" v-on:click="goBack">Back</button>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3" id="band-details" v-if="state.type == 1 && state.step == 2">
+                            <div class="card-header text-center">Band Details</div>
+                            <div class="card-body">
+
+                                <div class="form-group mb-3">
+                                    <label for="band-name">Band/Corps Name</label>
+                                    <input type="text" name="band-name" id="band-name" class="form-control" v-model="band.name" required />
+                                </div>
+
+                                <div class="row row-cols-2 mb-3">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="bandmaster-fname">Bandmaster First Name</label>
+                                            <input type="text" name="bandmaster-fname" id="bandmaster-fname" class="form-control" v-model="band.bandmaster.fname" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="bandmaster-sname">Bandmaster Surname</label>
+                                            <input type="text" name="bandmaster-sname" id="bandmaster-sname" class="form-control" v-model="band.bandmaster.sname" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="band-location">Location</label>
+                                    <input type="text" name="band-location" id="band-location" class="form-control" v-model="band.location" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="band-site">Website <small>(optional)</small></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">https://</span>
+                                        <input type="text" name="band-site" id="band-site" class="form-control" v-model="band.website" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="band-social">Social Media <small>(optional)</small></label>
+                                    <textarea class="form-control" id="band-social" name="band-social" v-model="band.socialMedia">
+                                </textarea>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-default" v-on:click="goBack">Back</button>
+                                    <button class="btn btn-default" v-on:click="saveBandDetails">Next</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card mb-3" v-if="state.type == 1 && state.step == 3" id="contact-details">
+                            <div class="card-header text-center">Contact Details</div>
+                            <div class="card-body">
+
+                                <div class="row mb-3 row-cols-2">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="contact-fname">Contact First Name</label>
+                                            <input type="text" name="contact-fname" id="contact-fname" class="form-control" v-model="contact.fname" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="contact-sname">Contact Surname</label>
+                                            <input type="text" name="contact-sname" id="contact-sname" class="form-control" v-model="contact.sname" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="email">Contact Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" v-model="contact.email" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="phone">Contact Phone Number</label>
+                                    <input type="tel" name="phone" id="phone" class="form-control" v-model="contact.phone" required />
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-default" v-on:click="goBack">Back</button>
+                                    <button class="btn btn-default" v-on:click="saveContactDetails">Next</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3" id="additional-details" v-if="(state.type == 2 && state.step == 1) || (state.type == 1 && state.step == 4)">
+                            <div class="card-header text-center">Additional Information</div>
+                            <div class="card-body">
+
+                                <div class="form-check" v-if="state.type == 1">
+                                    <input class="form-check-input" type="checkbox" id="chkPhoto" v-model="additional.photoConsent">
+                                    <label class="form-check-label" for="chkPhoto">
+                                        I give consent for BYBA to take photos and videos of our members and for BYBA to share them on the BYBA website, social media channels and future grant/funding applications
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="chkRenewal" v-model="additional.renewal">
+                                    <label class="form-check-label" for="chkRenewal">
+                                        I wish to be kept up to date with membership renewal information
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="chkTraining" v-model="additional.training">
+                                    <label class="form-check-label" for="chkTraining">
+                                        I wish to be kept up to date with training opportunities
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="chkFinals" v-model="additional.finals">
+                                    <label class="form-check-label" for="chkFinals">
+                                        I wish to be kept up to date when finals tickets are available
+                                    </label>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-default" v-on:click="goBack">Back</button>
+                                    <button class="btn btn-default" v-on:click="incrementStep(null)">Next</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3" id="billing-details" v-if="(state.type == 2 && state.step == 2) || (state.type == 1 && state.step == 5)">
+                            <div class="card-header text-center">Billing Details</div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="billing-fname">First Name</label>
+                                            <input type="text" name="billing-fname" id="billing-fname" class="form-control" v-model="billing.fname" required />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="billing-sname">Surname</label>
+                                            <input type="text" name="billing-sname" id="billing-sname" class="form-control" v-model="billing.sname" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="billing-email">Email Address</label>
+                                    <input type="email" name="billing-email" id="billing-email" class="form-control" v-model="billing.email" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="billing-street">Street Address</label>
+                                    <input type="text" name="billing-street" id="billing-street" class="form-control" v-model="billing.streetAddress" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="billing-city">Town / City</label>
+                                    <input type="text" name="billing-city" id="billing-city" class="form-control" v-model="billing.city" required />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="billing-postcode">Postcode</label>
+                                    <input type="text" name="billing-postcode" id="billing-postcode" class="form-control" v-model="billing.postcode" required />
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-default" v-on:click="goBack">Back</button>
+                                    <button class="btn btn-default" v-on:click="doPayment('billing-details')">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card card-body text-center mb-3" id="payment-details" v-if="(state.type == 2 && state.step == 3) || (state.type == 1 && state.step == 6)">
+                            <p>How would you like to pay for your membership?</p>
+
+                            <div>
+                                <button class="btn btn-default" v-on:click="setPaymentType('Card')">Online (card payment)</button>
+                                <button class="btn btn-default" v-on:click="setPaymentType('Bank')">Bank Transfer</button>
+                                <button class="btn btn-default" v-on:click="setPaymentType('Cheque')">Cheque</button>
+                            </div>
+
+                            <div class="text-center mt-3">
+                                <button class="btn btn-default" v-on:click="goBack">Back</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="alert alert-success text-center" v-if="state.isComplete">
+                        <p class="mb-0">{{endText}}</p>
+                        <a href="membership.html" v-if="state.addedToMembership">View membership list</a>
+                    </div>
+
+                </div>
+
+
+                <div class="col-4">
+                    <h2>2022 Schedule</h2>
+                    <div class="row" v-for="date in dates">
+                        <div class="col-4 text-center">
+                            <div class="bg-blue text-light rounded">
+                                <strong>{{date.month}}</strong>
+                                <p>{{date.day}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-8">
+                            <p class="mb-0">{{date.full}}</p>
+                            <strong>{{date.title}}</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                band: {
+                    name: '',
+                    bandmaster: {
+                        fname: '',
+                        sname: ''
+                    },
+                    location: '',
+                    website: '',
+                    socialMedia: ''
+                },
+                contact: {
+                    fname: '',
+                    sname: '',
+                    email: '',
+                    phone: ''
+                },
+                billing: {
+                    fname: '',
+                    sname: '',
+                    email: '',
+                    streetAddress: '',
+                    city: '',
+                    postcode: ''
+                },
+                additional: {
+                    renewal: false,
+                    training: false,
+                    finalsTickets: false,
+                    photoConsent: false
+                },
+                state: {
+                    type: 0, //0 = unknown, 1 = band, 2 = individual
+                    step: 0,
+                    isComplete: false,
+                    addedToMembership: false
+                },
+                tier: null,
+                endText: '',
+                dates: [{
+                    "date": "2022-05-22",
+                    "title": "BYBA Preview",
+                    "month": "May",
+                    "day": "22",
+                    "full": "22nd May 2022"
+                }, {
+                    "date": "2022-06-19",
+                    "title": "BYBA Northern",
+                    "month": "Jun",
+                    "day": "19",
+                    "full": "19th Jun 2022"
+                }, {
+                    "date": "2022-07-02",
+                    "title": "BYBA Coventry",
+                    "month": "Jul",
+                    "day": "02",
+                    "full": "2nd Jul 2022"
+                }, {
+                    "date": "2022-07-03",
+                    "title": "Summer Rhythm",
+                    "month": "Jul",
+                    "day": "03",
+                    "full": "3rd Jul 2022"
+                }, {
+                    "date": "2022-07-17",
+                    "title": "BYBA Southern",
+                    "month": "Jul",
+                    "day": "17",
+                    "full": "17th Jul 2022"
+                }, {
+                    "date": "2022-09-04",
+                    "title": "BYBA Midlands",
+                    "month": "Sept",
+                    "day": "04",
+                    "full": "4th Sept 2022"
+                }, {
+                    "date": "2022-09-18",
+                    "title": "BYBA Stafford",
+                    "month": "Sept",
+                    "day": "18",
+                    "full": "18th Sept 2022"
+                }, {
+                    "date": "2022-10-02",
+                    "title": "BYBA Finals",
+                    "month": "Oct",
+                    "day": "02",
+                    "full": "2nd Oct 2022"
+                }, {
+                    "date": "2022-11-19",
+                    "title": "I&E",
+                    "month": "Nov",
+                    "day": "19",
+                    "full": "19th Nov 2022"
+                }]
+            },
+            methods: {
+                setType: function(type) {
+                    this.state.type = type;
+                    this.incrementStep();
+                },
+                setTier: function(tier) {
+                    this.tier = tier;
+                    this.incrementStep();
+                },
+                saveBandDetails: function() {
+                    if (!this.incrementStep("band-details")) {
+                        return;
+                    }
+
+                    this.contact.fname = this.band.bandmaster.fname;
+                    this.contact.sname = this.band.bandmaster.sname;
+                },
+                saveContactDetails: function() {
+                    if (!this.incrementStep('contact-details')) {
+                        return;
+                    }
+
+                    this.billing.fname = this.contact.fname;
+                    this.billing.sname = this.contact.sname;
+                    this.billing.email = this.contact.email;
+                },
+                incrementStep: function(container) {
+                    if (container != null && container != "") {
+                        if (!validateContainer(document.getElementById(container))) {
+                            return false;
+                        }
+                    }
+
+                    this.state.step++;
+
+                    return true;
+                },
+                goBack: function() {
+                    this.state.step--;
+                },
+                doPayment: function(container) {
+                    if (!validateContainer(document.getElementById(container))) {
+                        return false;
+                    }
+
+                    this.incrementStep(null);
+
+                    if (this.tier == 'Bronze') { //bronze don't pay, so complete
+                        this.endText = "Your membership has been confirmed!";
+                        this.state.addedToMembership = true;
+                        this.setComplete(null);
+                    }
+                },
+                setPaymentType: function(type) {
+                    if (type == "Card") {
+                        this.endText = "Your membership has been confirmed!";
+                        this.state.addedToMembership = true;
+                    } else {
+                        this.endText = "Your details have been saved. Please check your email for the final steps to signing up for membership.";
+                    }
+
+                    this.setComplete(null);
+                },
+                setComplete: function(container) {
+                    if (!validateContainer(document.getElementById(container))) {
+                        return false;
+                    }
+
+                    if (this.state.type == 1) {
+                        let bands = localStorage.getItem("bands");
+                        if (bands == null) {
+                            bands = [];
+                        } else {
+                            bands = JSON.parse(bands);
+                        }
+
+                        bands.push({
+                            band: this.band.name,
+                            location: this.band.location,
+                            website: this.band.website
+                        });
+
+                        localStorage.setItem("bands", JSON.stringify(bands));
+                    }
+
+                    this.state.isComplete = true;
+                    this.incrementStep();
+                }
+            }
+        });
+
+        function validateContainer(container) {
+            if (container == null) {
+                return true;
+            }
+
+            let valid = true;
+
+            if (container.children.length == 0) {
+                if (typeof container.reportValidity === "function") {
+                    return container.reportValidity();
+                } else {
+                    return true;
+                }
+            } else {
+
+                for (let i = 0; i < container.children.length; i++) {
+                    if (!validateContainer(container.children[i])) {
+                        valid = false;
+                        //no early return to hit all controls
+                    }
+                }
+            }
+
+            return valid;
+        }
+    </script>
+</body></html>
