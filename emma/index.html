@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+		<link href="stylesheet.css" rel="stylesheet" />
+
+	<style>
+		.header {
+			background-image: url('header.png');
+			height: 8.75rem;
+		}
+
+		.squiggle {
+			position: absolute;
+			height: 8.75rem;
+			left: 7rem;
+			background-image: url('squiggle.png');
+			background-size: cover;
+			background-repeat: no-repeat;
+			width: 15rem;
+			background-position: center;
+			text-align: center;
+			padding-top: 1.5rem;
+			font-family: 'Beattingvile';
+			font-size: 3rem;;
+		}
+
+		.projects .col-4 {
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			position: relative;
+		}
+
+		.projects .col-4:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.4);
+		}
+
+		.project-1 {
+			background-image: url('project 1.png');
+		}
+
+		.project-2 {
+			background-image: url('project 2.png');
+		}
+
+		.project-3 {
+			background-image: url('temp.png');
+		}
+	</style>
+
+	<title>Emma Arnett</title>
+</head>
+
+<body>
+	<div class="header position-relative">
+		<div class="squiggle">Emma Arnett</div>
+	</div>
+
+	<div class="container-fluid mt-3">
+		<div class="row">
+			<div class="col-12 col-lg-8">
+				<div class="row">
+					<div class="col-12 col-lg-6">
+						<div class="card card-body mb-3">
+							<img src="emma.jpg" class="img-fluid" />
+						</div>
+					</div>
+
+					<div class="col-12 col-lg-6">
+						<p>Hi I'm Emma and I do a degree in cutting and sticking</p>
+					</div>
+
+					<div class="col-12">
+						<div class="card">
+							<div class="card-header">Previous Projects</div>
+							<div class="card-body">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-lg-4">
+				<div class="card">
+					<div class="card-header">Current Projects</div>
+					<div class="card-body">
+
+						<div class="card projects mb-3">
+							<div class="row g-0">
+								<div class="col-4 project-1">
+								</div>
+								<div class="col-8">
+									<div class="card-body">
+										<h5 class="card-title">Project 1</h5>
+										<p class="card-text">This is a wider card with supporting text below as a
+											natural lead-in to additional content. This content is a little bit longer.
+										</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card projects mb-3">
+							<div class="row g-0">
+								<div class="col-4 project-2">
+								</div>
+								<div class="col-8">
+									<div class="card-body">
+										<h5 class="card-title">Project 2</h5>
+										<p class="card-text">This is a wider card with supporting text below as a
+											natural lead-in to additional content. This content is a little bit longer.
+										</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card projects mb-3">
+							<div class="row g-0">
+								<div class="col-4 project-3">
+								</div>
+								<div class="col-8">
+									<div class="card-body">
+										<h5 class="card-title">Project 3</h5>
+										<p class="card-text">This is a wider card with supporting text below as a
+											natural lead-in to additional content. This content is a little bit longer.
+										</p>
+										<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
