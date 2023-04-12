@@ -1,6 +1,7 @@
 <script setup>
 import {reactive} from 'vue';
 import Category from './Category.vue'
+import Chooser from './Chooser.vue'
 
 const emit = defineEmits(['loaded']);
 const data = reactive({
@@ -19,8 +20,10 @@ data.loaded = true;
 
 		<Category v-for="key in Object.keys(data.menu)" :title="key" :items="data.menu[key]" />
 
-		<button class="btn btn-light chooser">Help Me Decide!</button>
+		<button class="btn btn-light chooser" @click="$refs.chooser.show(data.menu)">Help Me Decide!</button>
 	</div>
+
+	<Chooser ref="chooser" />
 </template>
 
 <style scoped>
