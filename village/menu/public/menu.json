@@ -13,7 +13,7 @@
 		],
 		"variants": [{
 			"name": "Half Pint",
-			"price": "£3.00"
+			"price": "£2.00"
 		}]
 	}, {
 		"title": "Pepsi Max",
@@ -26,13 +26,30 @@
 				"title": "Ice",
 				"inStock": true
 			}
-		]
+		],
+		"variants": [{
+			"name": "Half Pint",
+			"price": "£2.00"
+		}, {
+			"name": "Pint",
+			"price": "£3.00"
+		}]
 	}],
 	"spirits": [{
 		"title": "Vodka",
 		"ingredients": [{
 			"title": "Smirnoff Vodka",
 			"inStock": true
+		}],
+		"variants": [{
+			"name": "Shot",
+			"price": "£3.00"
+		}, {
+			"name": "Single + mixer",
+			"price": "£3.50"
+		}, {
+			"name": "Double + mixer",
+			"price": "£5.00"
 		}]
 	}],
 	"cocktails": [{
@@ -49,6 +66,10 @@
 		}, {
 			"title": "Pepsi Max",
 			"inStock": true
+		}],
+		"variants": [{
+			"name": "",
+			"price": "£8.00"
 		}]
 	}]
 }

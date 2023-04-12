@@ -6,13 +6,28 @@ html, body{
 
 body{
 	background-color: #000;
+	color: #DDD;
+	text-align: center;
+}
+
+body:before{
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+	display: block;
 	background-image: url('village.jpg');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+
 	box-shadow: inset 0 0 0 2000px rgba(0,0,0, 0.9);
-	color: #DDD;
-	text-align: center;
+	filter:blur(5px);
+	transform: scale(1.1);
 }
 
 .main-loader{
