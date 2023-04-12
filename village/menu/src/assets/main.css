@@ -1,0 +1,73 @@
+@import url('bootstrap.min.css');
+
+html, body{
+	height: 100%;
+}
+
+body{
+	background-color: #000;
+	color: #DDD;
+	text-align: center;
+}
+
+body:before{
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+	display: block;
+	background-image: url('village.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	box-shadow: inset 0 0 0 2000px rgba(0,0,0, 0.9);
+	filter:blur(5px);
+	transform: scale(1.1);
+}
+
+.main-loader{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.main-loader .spinner-grow{
+	width: max(10vw, 10vh);
+	height: max(10vw, 10vh);
+}
+
+.rainbow-spinner {
+	animation: 5s rainbow linear infinite;
+}
+
+@keyframes rainbow {
+	0% {
+		color: #276ef1;
+	}
+
+	20% {
+		color: #7356bf;
+	}
+
+	40% {
+		color: #e11900;
+	}
+
+	60% {
+		color: #ffe975;
+	}
+
+	80% {
+		color: #05944f;
+	}
+
+	100% {
+		color: #17a2b8;
+	}
+}
