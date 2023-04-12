@@ -1,25 +1,18 @@
 <script setup>
-import Category from './components/Category.vue';
+import {reactive} from 'vue';
 
-let menu = [];
-let loading = true;
+import Loader from './components/Loader.vue';
+import Menu from './components/Menu.vue';
 
-fetch('menu.json').then(res => res.json()).then(json => {
-	console.log(json);
-	loading = false;
+const data = reactive({
+	loading: true
 });
 </script>
 
 <template>
-	<div class="container d-flex flex-column h-100" v-if="loading">
-		<div class="rainbow-spinner main-loader">
-			<div class="spinner-grow" role="status">
-				<span class="visually-hidden">Loading...</span>
-			</div>
-		</div>
-	</div>
+	<Loader :loading="data.loading" />
 
-	<div class="container" v-if="!loading">
-		<h1 class="display-2 text-center">Menu</h1>
-	</div>
+	<Suspense>
+		<Menu @loaded="data.loading = false" />
+	</Suspense>
 </template>
