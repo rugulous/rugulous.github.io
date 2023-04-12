@@ -15,5 +15,40 @@
 			"name": "Half Pint",
 			"price": "£3.00"
 		}]
+	}, {
+		"title": "Pepsi Max",
+		"ingredients": [
+			{
+				"title": "Pepsi Max",
+				"inStock":true
+			},
+			{
+				"title": "Ice",
+				"inStock": true
+			}
+		]
+	}],
+	"spirits": [{
+		"title": "Vodka",
+		"ingredients": [{
+			"title": "Smirnoff Vodka",
+			"inStock": true
+		}]
+	}],
+	"cocktails": [{
+		"title": "Long Island Iced Tea",
+		"ingredients": [{
+			"title": "Smirnoff Vodka",
+			"inStock": true
+		}, {
+			"title": "Tequila",
+			"inStock": true
+		}, {
+			"title": "Gordon's Gin",
+			"inStock": true
+		}, {
+			"title": "Pepsi Max",
+			"inStock": true
+		}]
 	}]
 }

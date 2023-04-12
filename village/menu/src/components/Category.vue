@@ -20,7 +20,7 @@ function formatTitle(title){
 </script>
 
 <template>
-	<div class="mb-3">
+	<div class="mb-5">
 	<h2 class="display-4">{{ formatTitle(title) }}</h2>
 	<Item v-for="item in items" :item="item" />
 	</div>

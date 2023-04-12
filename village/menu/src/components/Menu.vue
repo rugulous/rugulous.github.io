@@ -15,7 +15,7 @@ data.loaded = true;
 
 <template>
 	<div class="container" v-if="data.loaded">
-		<h1 class="display-2 text-center">Menu</h1>
+		<h1 class="display-2 text-center mb-5 pt-3">Menu</h1>
 
 		<Category v-for="key in Object.keys(data.menu)" :title="key" :items="data.menu[key]" />
 	</div>
