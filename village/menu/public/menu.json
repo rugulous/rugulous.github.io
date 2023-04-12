@@ -1,1 +1,19 @@
-{}
+{
+	"softDrinks": [{
+		"title": "Orange Juice",
+		"ingredients": [
+			{
+				"title": "Orange Juice",
+				"inStock": false
+			},
+			{
+				"title": "Ice",
+				"inStock": true
+			}
+		],
+		"variants": [{
+			"name": "Half Pint",
+			"price": "£3.00"
+		}]
+	}]
+}
