@@ -12,5 +12,5 @@ defineProps({
 </script>
 
 <template>
-  <h2>{{ title }}</h2>
+  <h2 class="display-4">{{ title }}</h2>
 </template>

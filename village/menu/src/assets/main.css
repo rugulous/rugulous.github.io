@@ -1,1 +1,52 @@
-@import url('base.css');
+@import url('bootstrap.min.css');
+
+html, body{
+	height: 100%;
+}
+
+body{
+	background-color: #000;
+	color: #DDD;
+}
+
+.main-loader{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.main-loader .spinner-grow{
+	width: max(10vw, 10vh);
+	height: max(10vw, 10vh);
+}
+
+.rainbow-spinner {
+	animation: 5s rainbow linear infinite;
+}
+
+@keyframes rainbow {
+	0% {
+		color: #276ef1;
+	}
+
+	20% {
+		color: #7356bf;
+	}
+
+	40% {
+		color: #e11900;
+	}
+
+	60% {
+		color: #ffe975;
+	}
+
+	80% {
+		color: #05944f;
+	}
+
+	100% {
+		color: #17a2b8;
+	}
+}
